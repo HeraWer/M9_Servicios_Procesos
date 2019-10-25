@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Pt1.Pt1.java&apos; to &apos;ClienteTCP.java&apos;&#x0D;&#x0A;- Original project: &apos;Pt1_2DAM_MP09_UF3_VALLEJ_BEREÑOS&apos;&#x0D;&#x0A;- Original element: &apos;Pt1.Pt1.java&apos;&#x0D;&#x0A;- Renamed element: &apos;Pt1.ClienteTCP.java&apos;" description="Rename compilation unit &apos;Pt1.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;Pt1{Pt1.java" name="ClienteTCP.java" references="false" stamp="1569510271570" version="1.0"/>
+</session>

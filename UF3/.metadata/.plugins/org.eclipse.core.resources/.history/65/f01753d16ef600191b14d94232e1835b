@@ -1,0 +1,5 @@
+package ahorcado;
+
+public interface RMIAhorcInterface {
+
+}

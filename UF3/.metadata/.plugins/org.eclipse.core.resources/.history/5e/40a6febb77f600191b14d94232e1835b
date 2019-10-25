@@ -1,0 +1,108 @@
+package ahorcado;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.net.InetAddress;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+
+
+public class ServidorTCP_Ahorcado implements RMIAhorcInterface {
+	
+	private ArrayList<String> palabras = new ArrayList<String>();
+	static ServidorTCP_Ahorcado sta = new ServidorTCP_Ahorcado();
+	static final String palabra = null;
+	
+	@Override
+	public int largoPalabra() throws RemoteException {
+		return 0;
+	}
+
+	@Override
+	public String enviarLetra(String letra) throws RemoteException {
+		// TODO Auto-generated method stub
+		return "TONTO";
+	}
+
+	@Override
+	public String devolverPalabra() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean finalizar() throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public String escogerPalabra() {
+		String cadena;
+		try {
+			
+			File f = new File("palabras.txt");
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			
+			while((cadena = br.readLine()) != null) {
+				palabras.add(cadena);
+			}
+			System.out.println(palabras.toString());
+			int posicion = (int) (Math.random() * 100 + 0);
+			cadena = palabras.get(posicion).toString();
+			System.out.println("Palabra escogida por el servidor: " + cadena);
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return cadena;
+		
+	}
+
+	public static void main(String[] args) {
+
+		// CREAMOS UN REGISTRO DE OBJETOS REMOTOS
+		Registry reg = null;
+		
+		// ABRIMOS EL REGISTRO EN EL PUERTO 5555
+		try {
+			System.out.println("LocalHost = " + InetAddress.getLocalHost().toString());
+			reg = LocateRegistry.createRegistry(5555);
+		} catch (Exception e) {
+			System.out.println("Error: No se ha podido crear el registro");
+			e.printStackTrace();
+		}
+		
+		// PONIENDO DATOS METODOS
+		sta.escogerPalabra();
+		
+		//CREAMOS EL OBJETO SERVIDOR Y LO INSCRIBIMOS EN EL REGISTRO.
+
+		System.out.println("Creando el objeto servidor e inscribiendolo en el registro...");
+		ServidorTCP_Ahorcado serverObject = new ServidorTCP_Ahorcado();
+		
+		//FINALMENTE LE DAMOS UN NOMBRE AL REGISTRO "CALCULADORA" POR EL CUAL EL CLIENTE PODRA ENTRAR Y RESOLVER SUS OPERACIONES.
+
+		try {
+			reg.rebind("Ahorcado", (RMIAhorcInterface) UnicastRemoteObject.exportObject(serverObject, 0));
+		} catch (Exception e) {
+			System.out.println("Error: No se ha podido inscribir el objeto servidor");
+			e.printStackTrace();
+		}
+	}
+
+
+
+	
+
+	
+
+
+
+}

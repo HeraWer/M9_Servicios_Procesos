@@ -1,0 +1,16 @@
+package ahorcado;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface RMIAhorcInterface extends Remote{
+	
+	public int largoPalabra() throws RemoteException;
+	
+	public String enviarLetra(String letra) throws RemoteException;
+	
+	public String devolverPalabra() throws RemoteException;
+	
+	public boolean finalizar() throws RemoteException;
+
+}

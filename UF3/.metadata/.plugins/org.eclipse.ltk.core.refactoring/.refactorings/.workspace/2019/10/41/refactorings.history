@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;Practica_3_calculadora_remota_VALLEJ&apos; to &apos;Practica_3_calculadora_remota_VALLEJ_BEREÑOS&apos;&#x0D;&#x0A;- Original element: &apos;Practica_3_calculadora_remota_VALLEJ&apos;&#x0D;&#x0A;- Renamed element: &apos;Practica_3_calculadora_remota_VALLEJ&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;Practica_3_calculadora_remota_VALLEJ&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Practica_3_calculadora_remota_VALLEJ" name="Practica_3_calculadora_remota_VALLEJ_BEREÑOS" references="true" stamp="1570718490543" version="1.0"/>
+</session>

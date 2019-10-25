@@ -1,0 +1,13 @@
+package ahorcado;
+
+import java.io.File;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface RMIAhorcInterface extends Remote{
+	
+	public String comprobar(String a) throws RemoteException;
+	
+	public void escogerPalabra();
+
+}
