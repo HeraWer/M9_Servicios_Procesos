@@ -1,4 +1,4 @@
-package ahorcado;
+Sergio AMS1,[28.10.1917:16]package ahorcado;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;

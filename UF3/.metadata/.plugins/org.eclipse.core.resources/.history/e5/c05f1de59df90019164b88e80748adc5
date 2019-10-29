@@ -24,6 +24,8 @@ public class ServidorTCP_Ahorcado implements RMIAhorcInterface {
 	
 	@Override
 	public int largoPalabra() throws RemoteException {
+		palabra = escogerPalabra();
+		contador = 0;
 		return palabra.length() - 1;
 	}
 
@@ -116,7 +118,6 @@ public class ServidorTCP_Ahorcado implements RMIAhorcInterface {
 		}
 		
 		// PONIENDO DATOS METODOS
-		palabra = sta.escogerPalabra();
 		sta.guiones();
 		
 		//CREAMOS EL OBJETO SERVIDOR Y LO INSCRIBIMOS EN EL REGISTRO.
@@ -125,7 +126,7 @@ public class ServidorTCP_Ahorcado implements RMIAhorcInterface {
 		System.out.println("Juego listo");
 		ServidorTCP_Ahorcado serverObject = new ServidorTCP_Ahorcado();
 		
-		//FINALMENTE LE DAMOS UN NOMBRE AL REGISTRO "Ahorcado" POR EL CUAL EL CLIENTE PODRA ENTRAR Y RESOLVER SUS OPERACIONES.
+		//FINALMENTE LE DAMOS UN NOMBRE AL REGISTRO "CALCULADORA" POR EL CUAL EL CLIENTE PODRA ENTRAR Y RESOLVER SUS OPERACIONES.
 
 		try {
 			reg.rebind("Ahorcado", (RMIAhorcInterface) UnicastRemoteObject.exportObject(serverObject, 0));

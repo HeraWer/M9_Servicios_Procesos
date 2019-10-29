@@ -1,11 +1,11 @@
-package ahorcado;
+Sergio AMS1,[28.10.1917:16]package ahorcado;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
 
-public class ClienteTCP_Ahorcado {
+public class ClienteAhorcado {
 
 	public static void main(String[] args) throws RemoteException {
 
@@ -15,7 +15,7 @@ public class ClienteTCP_Ahorcado {
 		RMIAhorcInterface ahorcado = null;
 		try {
 			System.out.println("Localizando registro de objetos remotos...");
-			Registry registry = LocateRegistry.getRegistry("192.168.40.47", 5555);
+			Registry registry = LocateRegistry.getRegistry("192.168.40.44", 5555);
 			System.out.println("Obteniendo el stub del objeto remoto...");
 			ahorcado = (RMIAhorcInterface) registry.lookup("Ahorcado");
 		} catch (Exception e) {
