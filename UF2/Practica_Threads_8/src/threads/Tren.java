@@ -1,29 +1,26 @@
 package threads;
 
 public class Tren extends Thread {
-	
-	static Minero m = new Minero();
-	static Herrero h = new Herrero();
+
+	public Tren(String nombre) {
+		this.setName(nombre);
+	}
 
 	public void run() {
+		// Se calcula random el tiempo de espera de cada ejecucion
 		int pausa = (int) (Math.random() * 5000) + 500;
 		do {
 			try {
+				// El thread se espera lo calculado anteriormente
 				Thread.sleep(pausa);
-				buscarHerramientas();
+				/*
+				 * Llamamos a los metodos sincronizados para añadir o quitar elementos de los almacenes
+				 */
+				Main.almacenHerramientas.sacarStock(5);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} while (true);
-	}
-	
-	public void buscarHerramientas() throws InterruptedException {
-		if(Main.almacenHerramientas >= 5) {
-			Main.guardarHerramienta(-5);
-			System.err.println("TREN");
-			System.out.println("HIERROS: " + Main.almacenHierro);
-			System.out.println("HERRAMIENTAS: " + Main.almacenHerramientas);
-		}
 	}
 }

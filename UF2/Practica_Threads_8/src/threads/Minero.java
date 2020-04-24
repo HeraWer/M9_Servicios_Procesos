@@ -2,27 +2,26 @@ package threads;
 
 public class Minero extends Thread {
 
-	static Herrero h = new Herrero();
+	public Minero(String nombre) {
+		this.setName(nombre);
+	}
+	
 
 	public void run() {
 		do {
 			try {
+				// Se calcula random el tiempo de espera de cada ejecucion
 				int pausa = (int) (Math.random() * 1000) + 100;
+				// El thread se espera lo calculado anteriormente
 				Thread.sleep(pausa);
-				sumarHierro();
+				/*
+				 * Llamamos a los metodos sincronizados para añadir o quitar elementos de los almacenes
+				 */
+				Main.almacenHierro.añadirStock(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} while (true);
-	}
-
-	public void sumarHierro() throws InterruptedException {
-		if (Main.almacenHierro < 10) {
-			Main.guardarHierro(1);
-			System.err.println("MINERO");
-			System.out.println("HIERROS: " + Main.almacenHierro);
-			System.out.println("HERRAMIENTAS: " + Main.almacenHerramientas);
-		}
 	}
 }
